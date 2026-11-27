@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Univer 存檔與編輯鎖範例</title>
+        <style>
+            .save-lock-bar {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                align-items: center;
+                padding: 8px 16px;
+                border-bottom: 1px solid #e5e7eb;
+                background: #f9fafb;
+                font-size: 14px;
+            }
+            .save-lock-bar strong {
+                font-size: 15px;
+            }
+            .save-lock-bar button {
+                padding: 4px 14px;
+                border: 1px solid #2563eb;
+                border-radius: 6px;
+                background: #2563eb;
+                color: #fff;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .save-lock-bar button:disabled {
+                border-color: #9ca3af;
+                background: #9ca3af;
+                cursor: not-allowed;
+            }
+            .save-lock-bar button.secondary {
+                background: #fff;
+                color: #2563eb;
+            }
+            .save-lock-badge {
+                padding: 2px 10px;
+                border-radius: 999px;
+                font-size: 13px;
+            }
+            .save-lock-badge[data-mode='edit'] {
+                background: #dcfce7;
+                color: #166534;
+            }
+            .save-lock-badge[data-mode='readonly'] {
+                background: #fef3c7;
+                color: #92400e;
+            }
+            .save-lock-badge[data-mode='error'] {
+                background: #fee2e2;
+                color: #991b1b;
+            }
+            #save-status {
+                color: #4b5563;
+            }
+            #app {
+                flex: 1;
+                min-height: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="save-lock-bar">
+            <strong>存檔與編輯鎖範例</strong>
+            <label>使用者名稱 <input id="user-name" size="10" /></label>
+            <span class="save-lock-badge" data-mode="readonly" id="mode-badge">連線中…</span>
+            <button disabled id="save-button" type="button">存檔（Ctrl+S）</button>
+            <button class="secondary" hidden id="reload-button" type="button">重新載入</button>
+            <span id="save-status"></span>
+        </div>
+        <main id="app"></main>
+        <script src="./main.ts" type="module"></script>
+    </body>
+</html>

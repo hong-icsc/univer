@@ -3,5 +3,5 @@
     "compilerOptions": {
         "types": ["vite/client"]
     },
-    "include": ["src", "tailwind*.config.ts", "vite.config.ts"]
+    "include": ["src", "save-lock/*.ts", "tailwind*.config.ts", "vite.config.ts"]
 }
